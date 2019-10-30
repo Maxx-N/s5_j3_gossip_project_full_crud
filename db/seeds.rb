@@ -12,7 +12,7 @@
     u.id = index + 1
     u.first_name = Faker::Name.first_name
     u.last_name = Faker::Name.last_name 
-    u.email = u.first_name.downcase + "." + u.last_name.downcase + "@gmail.com"
+    u.email = Faker::Internet.unique.email
     u.age = rand(15..30)
     u.description = Faker::Hacker.say_something_smart
     u.save
@@ -28,8 +28,8 @@
   10.times do |index|
     c = City.new
     c.id = index + 1
-    c.name = Faker::Address.city
-    c.zip_code = Faker::Address.zip
+    c.name = Faker::Address.unique.city
+    c.zip_code = "#{rand(0..9)}#{rand(1..5)}#{Faker::Number.unique.between(from: 10, to: 88)}0"
     c.save
   end
 
@@ -63,7 +63,10 @@
 
 # On créé aléatoirement 20 gossips : 
   20.times do |index|
-    Gossip.create(id: index + 1, title: Faker::Game.title, content:Faker::TvShows::RickAndMorty.quote)
+    Gossip.create(
+      id: index + 1, 
+      title: Faker::Game.title, 
+      content:Faker::TvShows::RickAndMorty.quote)
   end
 
 # On affiche la liste des villes (en limitant le nombre de colonnes) :

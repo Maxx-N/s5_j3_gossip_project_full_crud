@@ -1,5 +1,8 @@
 <h1>Bienvenu(e) !</h1>
 <br>
+<p><%= link_to "Clique ici", new_gossip_path %> pour créer ton potin... </p>
+<br>
+<br>
 <h2>Voici la liste des potins postés : </h2>
 <%@gossip_list.each do |g|%>
   <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
