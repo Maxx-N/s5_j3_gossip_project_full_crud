@@ -65,7 +65,7 @@
   20.times do |index|
     Gossip.create(
       id: index + 1, 
-      title: Faker::Game.title, 
+      title: Faker::Game.title[3..14], 
       content:Faker::TvShows::RickAndMorty.quote)
   end
 
