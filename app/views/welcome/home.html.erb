@@ -1,0 +1,11 @@
+<h1>Bienvenu(e) !</h1>
+<br>
+<h2>Voici la liste des potins postés : </h2>
+<%@gossip_list.each do |g|%>
+  <br>
+  <ul> <p><u><strong><%= link_to "Potin n° #{g.id}", gossip_path(g.id) %> </strong></u></p>
+    <li>Titre : <%= g.title %></li>
+    <li>Auteur : <%= g.user.first_name %></li>
+  </ul>
+  <br>
+<%end%>
