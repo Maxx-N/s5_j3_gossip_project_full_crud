@@ -14,7 +14,7 @@
         <ul>
           <li>Titre : <%= g.title %></li>
           <br>
-          <li>Auteur : <%= g.user.first_name %></li>
+          <li>Auteur : <%= link_to "#{g.user.first_name}", user_path(g.user.id) %></li>
         </ul>
       </p>
     </div>

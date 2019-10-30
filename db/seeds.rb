@@ -90,5 +90,15 @@
     puts "- " + g.content
   end
 
+# On crée un utilisateur "anonymous"
+  User.create(
+    id: User.all.length + 1,
+    first_name: "anonymous",
+    last_name: "unknown",
+    age: "30",
+    email: "anonymous@email.com",
+    city_id: City.all.find(rand(1..City.all.length)).id
+  )
+
 
   

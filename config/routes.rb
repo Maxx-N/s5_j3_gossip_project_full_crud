@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   resources :gossips
   resources :users
+  resources :cities
 
 end

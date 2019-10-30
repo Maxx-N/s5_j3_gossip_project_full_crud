@@ -14,8 +14,12 @@ class GossipsController < ApplicationController
     new_gossip.id = Gossip.all.length + 1
     new_gossip.title = params[:gossip_title]
     new_gossip.content = params[:gossip_content]
-    new_gossip.user = User.all.find(rand(1..User.all.length))
-    new_gossip.save
+    new_gossip.user = User.all.find_by(first_name: "anonymous")
+    if new_gossip.save
+      redirect_to "/"
+    else
+      render "/gossips/new"
+    end
   end
 
   def edit
