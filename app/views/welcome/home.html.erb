@@ -2,10 +2,18 @@
 <br>
 <h2>Voici la liste des potins postés : </h2>
 <%@gossip_list.each do |g|%>
-  <br>
-  <ul> <p><u><strong><%= link_to "Potin n° #{g.id}", gossip_path(g.id) %> </strong></u></p>
-    <li>Titre : <%= g.title %></li>
-    <li>Auteur : <%= g.user.first_name %></li>
-  </ul>
-  <br>
+  <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+      <%= link_to "Potin n° #{g.id}", gossip_path(g.id) %>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <ul>
+          <li>Titre : <%= g.title %></li>
+          <br>
+          <li>Auteur : <%= g.user.first_name %></li>
+        </ul>
+      </p>
+    </div>
+  </div>
 <%end%>
